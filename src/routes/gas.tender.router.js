@@ -18,6 +18,6 @@ gasTenderRouter.post("/", createGasTender);
 gasTenderRouter.put("/:id", updateGasTender);
 gasTenderRouter.delete("/:id", deleteGasTender);
 gasTenderRouter.get("/latest", getLatestGasTenders);
-gasTenderRouter.get("/newGasTenders/", getNewGasTenders);
+gasTenderRouter.get("/new/", getNewGasTenders);
 
 export default gasTenderRouter;
