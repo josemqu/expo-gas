@@ -1,0 +1,149 @@
+:root {
+	--A-color: #00629b;
+	--B-color: #00843d;
+	--C-color: #64a70b;
+	--D-color: #63666a;
+	--E-color: #69b3e7;
+	--F-color: #93328e;
+	--G-color: #ea7600;
+	--H-color: #f1c400;
+	--I-color: #8e8c13;
+	--J-color: #003c71;
+	--K-color: #5d2a2c;
+	--L-color: #59315f;
+	--M-color: #16172b;
+	--N-color: #ac0006;
+	--O-color: #d7d7d7;
+	--P-color: #444;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif;
+	/* , "Roboto", "Segoe UI", Tahoma, Geneva, Verdana; */
+}
+
+#custom-target {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: 5000;
+}
+
+/* set a max width container */
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	border-bottom: 2px solid #009879;
+	margin-bottom: 2rem;
+	color: #009879;
+	padding: 0.5rem;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.main-title {
+	width: 100%;
+	font-weight: bold;
+}
+
+.run-scraping {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.prices-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 2rem;
+}
+
+/* style a nice table with headers and alternate row colors */
+
+.content-table {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	width: 100%;
+	min-width: 300px;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+	font-weight: bold;
+}
+
+.content-table thead th.price,
+.content-table td.price {
+	text-align: right;
+}
+
+.content-table thead th.options,
+.content-table td.options {
+	text-align: center;
+}
+
+.content-table th,
+.content-table td {
+	flex: content;
+	padding: 12px 15px;
+	font-weight: bold;
+	/* no warp text with 3 dots*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.content-table th:first-of-type {
+	width: 62%;
+}
+
+.content-table tbody tr {
+	color: var(--P-color);
+	border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr:hover > .date,
+.content-table tbody tr:hover > .price {
+	font-weight: bold;
+	color: #009879;
+}
+
+.fa-trash-alt:hover {
+	color: var(--N-color);
+	cursor: pointer;
+}
+
+.fa-edit:hover {
+	color: var(--E-color);
+	cursor: pointer;
+}
