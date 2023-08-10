@@ -8,6 +8,9 @@ class MainService {
 		const latest = await gasTenderService.getLatestGasTenders();
 		let newGasTenders = [];
 
+		console.log(previous[0]);
+		console.log(latest[0]);
+
 		if (true) {
 			const previousGasTenders = previous;
 			const latestGasTenders = latest;
@@ -17,8 +20,7 @@ class MainService {
 			} else {
 				latestGasTenders.forEach((latestGasTender) => {
 					const found = previousGasTenders.find(
-						(previousGasTender) =>
-							previousGasTender.date === latestGasTender.date
+						(previousGasTender) => previousGasTender.id === latestGasTender.id
 					);
 					if (!found) {
 						newGasTenders.push(latestGasTender);
