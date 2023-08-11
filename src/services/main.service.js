@@ -40,7 +40,7 @@ class MainService {
 			// Send email to the user
 			const email = EMAIL_TO;
 			const mail = {
-				from: `QUINTANA, Jose Maria ${USER}`,
+				from: USER,
 				to: [email, "jose.quintana@tecpetrol.com"],
 				subject: `Se publicaron nuevas licitaciones de gas!`,
 				html: emailTemplates.newGasTendersMail(newGasTenders),
@@ -79,7 +79,7 @@ class MainService {
 			// Send email to the user
 			const email = EMAIL_TO;
 			const mail = {
-				from: `QUINTANA, Jose Maria ${USER}`,
+				from: USER,
 				to: [email, "jose.quintana@tecpetrol.com"],
 				subject: `Se actualizaron licitaciones de gas!`,
 				html: emailTemplates.updatedGasTendersMail(updatedGasTenders),
