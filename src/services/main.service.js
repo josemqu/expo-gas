@@ -39,9 +39,9 @@ class MainService {
 
 		if (newGasTenders.length > 0) {
 			// Save all the new Gas Tenders
-			// newGasTenders.forEach(async (gasTender) => {
-			// 	await gasTenderService.saveGasTender(gasTender);
-			// });
+			newGasTenders.forEach(async (gasTender) => {
+				await gasTenderService.saveGasTender(gasTender);
+			});
 
 			// Send email to the user
 			const email = EMAIL_TO;
