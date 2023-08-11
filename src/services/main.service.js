@@ -33,7 +33,8 @@ class MainService {
 		if (newGasTenders.length > 0) {
 			// Save all the new Gas Tenders
 			newGasTenders.forEach(async (gasTender) => {
-				await gasTenderService.saveGasTender(gasTender);
+				const response = await gasTenderService.saveGasTender(gasTender);
+				console.log(response);
 			});
 
 			// Send email to the user
@@ -68,13 +69,12 @@ class MainService {
 			}
 		});
 
-		console.log({ updatedGasTenders });
-
 		if (updatedGasTenders.length > 0) {
 			// update updatedGasTenders in database
-			// updatedGasTenders.forEach(async (gasTender) => {
-			// 	await gasTenderService.updateGasTender(gasTender);
-			// });
+			updatedGasTenders.forEach(async (gasTender) => {
+				const response = await gasTenderService.updateGasTender(gasTender);
+				console.log(response);
+			});
 
 			// Send email to the user
 			const email = EMAIL_TO;

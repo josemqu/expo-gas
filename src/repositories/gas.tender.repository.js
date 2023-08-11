@@ -17,6 +17,11 @@ export default class GasTenderRepository {
 		return await gasTenderModel.findByIdAndUpdate(id, gasTender);
 	}
 
+	async getIdByPropertyId(id) {
+		const response = await gasTenderModel.find({ id: id });
+		return response[0]._id;
+	}
+
 	async delete(id) {
 		return await gasTenderModel.findByIdAndDelete(id);
 	}

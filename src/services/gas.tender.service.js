@@ -20,7 +20,8 @@ class GasTenderService {
 		return createdGasTender;
 	}
 
-	async updateGasTender(id, gasTender) {
+	async updateGasTender(gasTender) {
+		const id = await gasTenderRepository.getIdByPropertyId(gasTender.id);
 		const updatedGasTender = await gasTenderRepository.update(id, gasTender);
 		return updatedGasTender;
 	}
