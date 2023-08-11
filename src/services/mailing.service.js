@@ -2,12 +2,12 @@ import mailer from "nodemailer";
 import config from "../config/config.js";
 
 const {
-	NODEMAILER: { SERVICE, PORT, USER, PASSWORD },
+	NODEMAILER: { SERVICE, PORT, USER, PASSWORD, EMAIL_TO },
 } = config;
 
 class MailingService {
 	constructor() {
-		this.client = mailer.createTransport({
+		this.transporter = mailer.createTransport({
 			service: SERVICE,
 			port: PORT,
 			auth: {
@@ -17,16 +17,15 @@ class MailingService {
 		});
 	}
 
-	sendEmail = async ({ from, to, subject, html, attachments = [] }) => {
-		let result = await this.client.sendMail({
-			from,
-			to,
-			subject,
-			html,
-			attachments,
-		});
-		console.log(result);
-		return null;
+	sendEmail = async (mail) => {
+		try {
+			const info = await this.transporter.sendMail(mail);
+			console.log("Message sent: %s", info.messageId);
+			return info;
+		} catch (error) {
+			console.log(error);
+			return error;
+		}
 	};
 }
 

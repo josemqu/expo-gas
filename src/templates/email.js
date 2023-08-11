@@ -5,7 +5,7 @@ export const emailTemplates = {
         <head>
             <meta charset="utf-8" />
             <meta http-equiv="x-ua-compatible" content="ie=edge" />
-            <title>Reset Password</title>
+            <title>Gas Tenders</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
         <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; background-color: #f6f6f6; height: 100%; hyphens: auto; line-height: 1.4; margin: 0; -moz-hyphens: auto; -ms-word-break: break-all; width: 100% !important; -webkit-hyphens: auto; -webkit-text-size-adjust: none; word-break: break-word;">
@@ -15,9 +15,9 @@ export const emailTemplates = {
                         <table style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <tr>
                                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
-                                    <h1>New Tenders were published!</h1>
-                                    <p>Hi ${email}, this is an email to notify you that new tenders were published. Check them out!</p>
-                                    <p>Here's the list of the new tenders:</p>
+                                    <h1>Nuevas licitaciones de gas!</h1>
+                                    <p>Estimado, este correo es para notificar que fueron publicadas nuevas licitaciones de exportación de Gas Natural.</p>
+                                    <p>Las licitaciones se detallan a continuación:</p>
                                     <table style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
                                             <tr>
@@ -46,7 +46,7 @@ export const emailTemplates = {
 																							.join("")}
                                         </tbody>
                                     </table>
-                                    <p>Thanks for using our service!</p>
+                                    <p>Para más información, ingrese a <a href="https://exportaciongasnatural.energia.gob.ar/exportacion-gas-natural">https://exportaciongasnatural.energia.gob.ar/exportacion-gas-natural</a></p>
                                 </td>
                             </tr>
                         </table>

@@ -3,7 +3,7 @@ import { emailTemplates } from "../templates/email.js";
 import config from "../config/config.js";
 
 const {
-	NODEMAILER: { EMAIL_TO },
+	NODEMAILER: { SERVICE, PORT, USER, PASSWORD, EMAIL_TO },
 } = config;
 
 class MainService {
@@ -46,13 +46,14 @@ class MainService {
 			// Send email to the user
 			const email = EMAIL_TO;
 			const mail = {
-				to: email,
-				subject: `New tenders were published!`,
+				from: `QUINTANA, Jose Maria ${USER}`,
+				to: [email, "jose.quintana@tecpetrol.com"],
+				subject: `Se publicaron nuevas licitaciones de gas!`,
 				html: emailTemplates.newGasTendersMail(email, newGasTenders),
 			};
 
-			await this.mailingService.sendEmail(mail);
-			return;
+			const response = await this.mailingService.sendEmail(mail);
+			console.log(response);
 		}
 
 		return newGasTenders;
