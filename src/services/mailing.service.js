@@ -2,17 +2,17 @@ import mailer from "nodemailer";
 import config from "../config/config.js";
 
 const {
-	nodemailer: { service, port, user, password },
+	NODEMAILER: { SERVICE, PORT, USER, PASSWORD },
 } = config;
 
 class MailingService {
 	constructor() {
 		this.client = mailer.createTransport({
-			service,
-			port,
+			service: SERVICE,
+			port: PORT,
 			auth: {
-				user,
-				pass: password,
+				user: USER,
+				pass: PASSWORD,
 			},
 		});
 	}

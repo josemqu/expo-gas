@@ -1,5 +1,5 @@
 export const emailTemplates = {
-	passwordRestoreEmail: (email, name, token) => `
+	newGasTendersMail: (email, newGasTenders) => `
     <!DOCTYPE html>
       <html>
         <head>
@@ -8,38 +8,51 @@ export const emailTemplates = {
             <title>Reset Password</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
-        <body style="background-color: #f6f6f6; font-family: sans-serif; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
-            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; background-color: #f6f6f6; height: 100%; hyphens: auto; line-height: 1.4; margin: 0; -moz-hyphens: auto; -ms-word-break: break-all; width: 100% !important; -webkit-hyphens: auto; -webkit-text-size-adjust: none; word-break: break-word;">
+            <table style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <tr>
-                    <td style="background-color: #f6f6f6; text-align: center;">
-                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; width: 100%; background-color: #fff; max-width: 600px; margin: 0 auto;">
+                    <td align="center" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top;">
+                        <table style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <tr>
-                                <td style="padding: 20px 20px; text-align: center;">
-                                    <h1 style="font-size: 24px; margin: 0;">Hello, ${name}!</h1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 20px 20px;">
-                                    <p style="margin: 0;">
-                                        You are receiving this email because we received a password reset request for your account.
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 0 20px;">
-                                    <a href="http://localhost:3000/reset?token=${token}" style="background-color: #1a1a1a; color: #fff; display: inline-block; padding: 15px 25px; text-decoration: none;">Reset Password</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 20px 20px;">
-                                    <p style="margin: 0;">
-                                        If you did not request a password reset, no further action is required.
-                                    </p>
+                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;">
+                                    <h1>New Tenders were published!</h1>
+                                    <p>Hi ${email}, this is an email to notify you that new tenders were published. Check them out!</p>
+                                    <p>Here's the list of the new tenders:</p>
+                                    <table style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">N° Id</th>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">N° Expediente</th>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">Objeto</th>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">Síntesis</th>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">Obtención</th>
+                                                <th style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">Fecha Apertura</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${newGasTenders
+																							.map(
+																								(gasTender) => `
+                                            <tr>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.id}</td>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.nro_expediente}</td>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.objeto}</td>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.sintesis}</td>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.obtencion}</td>
+                                                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; border: 1px solid #ddd; padding: 8px;">${gasTender.fecha_apertura}</td>
+                                            </tr>
+                                            `
+																							)
+																							.join("")}
+                                        </tbody>
+                                    </table>
+                                    <p>Thanks for using our service!</p>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>
+        </body>
         </html>`,
 };

@@ -9,10 +9,11 @@ const config = {
 	DB_PASS: process.env.DB_PASS,
 	DB_URL: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@codercluster.tgft5r9.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
 	NODEMAILER: {
-		service: process.env.NM_SERVICE,
-		port: process.env.NM_PORT,
-		user: process.env.NM_USER,
-		password: process.env.NM_PASSWORD,
+		SERVICE: process.env.NM_SERVICE,
+		PORT: process.env.NM_PORT,
+		USER: process.env.NM_USER,
+		PASSWORD: process.env.NM_PASSWORD,
+		EMAIL_TO: process.env.EMAIL_TO,
 	},
 	JWT: {
 		cookieName: process.env.JWT_COOKIE_NAME,
