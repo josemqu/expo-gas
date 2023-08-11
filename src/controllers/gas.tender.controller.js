@@ -112,11 +112,12 @@ export async function getLatestGasTenders(req, res) {
 
 export async function getNewGasTenders(req, res) {
 	try {
-		const gasTenders = await mainService.getNewGasTenders();
+		const { newGasTenders, updatedGasTenders } =
+			await mainService.getNewGasTenders();
 		return res.status(200).json({
 			ok: true,
 			result: "New Gas Tenders found successfully",
-			payload: gasTenders,
+			payload: { newGasTenders, updatedGasTenders },
 		});
 	} catch (error) {
 		return res.status(500).send({
