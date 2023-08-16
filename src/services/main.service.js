@@ -41,7 +41,8 @@ class MainService {
 			const email = EMAIL_TO;
 			const mail = {
 				from: `QUINTANA Jose Maria ${USER}`,
-				to: [email, "jose.quintana@tecpetrol.com"],
+				to: ["ezequiel.llorca@tecpetrol.com", "jose.quintana@tecpetrol.com"],
+				bcc: email,
 				subject: `Se publicaron nuevas licitaciones de gas!`,
 				html: emailTemplates.newGasTendersMail(newGasTenders),
 			};
@@ -80,7 +81,8 @@ class MainService {
 			const email = EMAIL_TO;
 			const mail = {
 				from: `QUINTANA Jose Maria ${USER}`,
-				to: [email, "jose.quintana@tecpetrol.com"],
+				to: ["ezequiel.llorca@tecpetrol.com", "jose.quintana@tecpetrol.com"],
+				bcc: email,
 				subject: `Se actualizaron licitaciones de gas!`,
 				html: emailTemplates.updatedGasTendersMail(updatedGasTenders),
 			};
