@@ -2,7 +2,15 @@ import { gasTenderModel } from "../models/gas.tender.model.js";
 
 export default class GasTenderRepository {
 	async getAll() {
-		return await gasTenderModel.find();
+		// sort id desc
+		return await gasTenderModel
+			.find()
+			.sort({
+				id: -1,
+			})
+			.collation({ locale: "en_US", numericOrdering: true })
+			.limit(15)
+			.lean();
 	}
 
 	async getById(id) {

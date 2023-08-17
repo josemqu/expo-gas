@@ -108,11 +108,18 @@
 .content-table td {
 	flex: content;
 	padding: 12px 15px;
-	font-weight: bold;
+	/* font-weight: bold; */
 	/* no warp text with 3 dots*/
+	max-width: 12rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+/* first column */
+.content-table tbody tr :first-child {
+	text-align: center;
+	max-width: 4rem;
 }
 
 .content-table th:first-of-type {

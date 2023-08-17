@@ -1,0 +1,37 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gas Tenders</title>
+	</head>
+
+	<body>
+		<div class="tenders-container">
+			<div class="header">Ofertas de Exportación de Gas Natural</div>
+			<table class="content-table">
+				<thead>
+					<tr>
+						<th class="id">N° Id</th>
+						<th class="nombre_estado">Estado</th>
+						<th class="objeto">Título</th>
+						<th class="obtencion">Destino</th>
+						<th class="fecha_apertura">Fecha Apertura</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each gasTenders}}
+						<tr>
+							<td class="id">{{this.id}}</td>
+							<td class="nombre_estado">{{this.nombre_estado}}</td>
+							<td class="objeto">{{this.objeto}}</td>
+							<td class="obtencion">{{this.obtencion}}</td>
+							<td class="fecha_apertura">{{this.fecha_apertura}}</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+
+	</body>
+	<script src="/js/prices.js" defer></script>
+</html>

@@ -37,6 +37,11 @@ class GasTenderService {
 		const latestGasTenders = response.data;
 		return latestGasTenders;
 	}
+
+	async renderGasTenders() {
+		const gasTenders = await this.getGasTenders();
+		return gasTenders;
+	}
 }
 
 export default GasTenderService;
