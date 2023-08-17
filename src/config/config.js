@@ -13,7 +13,9 @@ const config = {
 		PORT: process.env.NM_PORT,
 		USER: process.env.NM_USER,
 		PASSWORD: process.env.NM_PASSWORD,
-		EMAIL_TO: process.env.EMAIL_TO,
+		EMAIL_TO: process.env.EMAIL_TO.split(";"),
+		EMAIL_CC: process.env.EMAIL_CC.split(";"),
+		EMAIL_BCC: process.env.EMAIL_BCC.split(";"),
 	},
 	JWT: {
 		cookieName: process.env.JWT_COOKIE_NAME,

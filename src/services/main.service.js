@@ -3,7 +3,7 @@ import { emailTemplates } from "../templates/email.js";
 import config from "../config/config.js";
 
 const {
-	NODEMAILER: { SERVICE, PORT, USER, PASSWORD, EMAIL_TO },
+	NODEMAILER: { SERVICE, PORT, USER, PASSWORD, EMAIL_TO, EMAIL_CC, EMAIL_BCC },
 } = config;
 
 class MainService {
@@ -38,12 +38,12 @@ class MainService {
 			});
 
 			// Send email to the user
-			const email = EMAIL_TO;
 			const mail = {
 				from: `QUINTANA Jose Maria ${USER}`,
-				to: ["ezequiel.llorca@tecpetrol.com", "jose.quintana@tecpetrol.com"],
-				bcc: email,
-				subject: `Se publicaron nuevas licitaciones de gas!`,
+				to: EMAIL_TO,
+				cc: EMAIL_CC,
+				bcc: EMAIL_BCC,
+				subject: `Se publicaron nuevas licitaciones de gas`,
 				html: emailTemplates.newGasTendersMail(newGasTenders),
 			};
 
@@ -78,12 +78,12 @@ class MainService {
 			});
 
 			// Send email to the user
-			const email = EMAIL_TO;
 			const mail = {
 				from: `QUINTANA Jose Maria ${USER}`,
-				to: ["ezequiel.llorca@tecpetrol.com", "jose.quintana@tecpetrol.com"],
-				bcc: email,
-				subject: `Se actualizaron licitaciones de gas!`,
+				to: EMAIL_TO,
+				cc: EMAIL_CC,
+				bcc: EMAIL_BCC,
+				subject: `Se actualizaron licitaciones de gas`,
 				html: emailTemplates.updatedGasTendersMail(updatedGasTenders),
 			};
 			const response = await this.mailingService.sendEmail(mail);
